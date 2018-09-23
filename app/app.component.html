@@ -1,0 +1,11 @@
+<div class="select-container">
+    <div class="selected-value" (click)="toggleDropDown()">{{title}}</div>
+    <div class="dropdown-container" *ngIf="showDropDown">
+        <input type="text" [(ngModel)]="searchText" placeholder="search">
+        <ul>
+            <li class="value-conatiner" *ngFor="let line of dropdownList | filter : searchText" 
+            (click)="selected(line)" [ngClass]='{"active-tab":selectedTabIndex === line.id}'>{{line.itemName}}</li>
+        </ul>
+    </div>
+</div>
+
